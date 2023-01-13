@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import InputPanel from './InputPanel';
 import ListPanel from './ListPanel';
+import TableComponent from './TableComponent';
 
 export default function App() {
   /*  Entries in the list have the form:
@@ -54,11 +55,7 @@ export default function App() {
         <h1>Time Logger Application</h1>
       </header>
       <InputPanel entriesList={entriesList} setEntriesList={setEntriesList} />
-      <ListPanel
-        entriesList={entriesList}
-        deleteTaskCallback={deleteTask}
-        editTaskCallback={editTask}
-      />
+      <TableComponent rowEntries={entriesList} />
     </>
   );
 }

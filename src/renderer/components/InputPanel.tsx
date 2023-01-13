@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import TimerDisplay from './TimerDisplay';
@@ -21,9 +22,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
         setCurrentSeconds((prevTime) => prevTime + 1);
       }, 1000);
       const now = dayjs();
-      // console.log(now.format());
-      // console.log(now.format('dddd, MMMM D YYYY'));
-      // console.log(now.format('HH:mm:ss'));
       setTimerStartTime(now);
     } else {
       clearInterval(intervalTimer);
@@ -35,11 +33,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
       // setTimerEndTime('');
     }
     if (timerStatus === 'stopped') {
-      // const end = dayjs();
-      // // console.log(end.format());
-      // // console.log(end.format('dddd, MMMM D YYYY'));
-      // // console.log('ssss', end.format('HH:mm:ss'));
-      // setTimerEndTime(end);
     }
 
     return () => clearInterval(intervalTimer);
