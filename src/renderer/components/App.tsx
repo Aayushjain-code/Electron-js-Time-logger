@@ -8,10 +8,10 @@ export default function App() {
       { id: number, description: string, secondsCount: number }  */
   const [entriesList, setEntriesList] = useState([]);
 
-  const exampleTasks = [
-    ['Example Task One', 20015, '10:28:28', '10:28:33'],
-    ['Example Task Two', 12057, '10:28:28', '10:28:33'],
-    ['Example Task Three', 3605, '10:28:28', '10:28:33'],
+  const exampleTasks: never[] = [
+    // ['Example Task One', 20015, '10:28:28', '10:28:33'],
+    // ['Example Task Two', 12057, '10:28:28', '10:28:33'],
+    // ['Example Task Three', 3605, '10:28:28', '10:28:33'],
   ];
 
   useEffect(

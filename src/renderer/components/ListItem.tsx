@@ -14,7 +14,7 @@ export default function ListItem({
           <p className="task-time">Duration:{`${timeToDisplay}`}</p>
           <p className="task-start-time">Start time:{`${timerStartTime}`}</p>
           <p className="task-end-time"> End time:{`${timerEndTime}`}</p>
-          <div className="entry-controls">
+          {/* <div className="entry-controls">
             <button
               className="button btn-yellow"
               onClick={() => editTaskCallback(id)}
@@ -27,7 +27,7 @@ export default function ListItem({
             >
               Delete
             </button>
-          </div>
+          </div> */}
         </div>
       </li>
     </>
