@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/button-has-type */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getExportFileExcel } from 'renderer/utils';
 import jsPDF from 'jspdf';
 import InputPanel from './InputPanel';
@@ -50,7 +50,20 @@ export default function App() {
     'timerStartTime',
     'timerEndTime',
   ];
-
+  const headerColumns = [
+    'id',
+    'Employee Name',
+    'Time Duration',
+    'Start Time',
+    'End Time',
+  ];
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    let TimeId = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(TimeId);
+    };
+  });
   return (
     <>
       <header>
@@ -64,11 +77,20 @@ export default function App() {
           />
           <TableComponent rowEntries={entriesList} />
         </div>
+
+        {/* <div className="currentTime">
+          <span>Current time: {time.toLocaleTimeString()}</span>{' '}
+        </div> */}
         <div className="utilityContent">
           <button
             className="button btn-yellow"
             onClick={() => {
-              getExportFileExcel(columns, entriesList, 'timesheetexcel');
+              getExportFileExcel(
+                headerColumns,
+                columns,
+                entriesList,
+                'timesheetexcel'
+              );
             }}
           >
             Export Excel
@@ -76,7 +98,7 @@ export default function App() {
           <button
             className="button btn-yellow "
             onClick={() => {
-              getExportFilePDF(columns, entriesList, 'timesheetpdf');
+              getExportFilePDF(headerColumns, entriesList, 'timesheetpdf');
             }}
           >
             Export Pdf

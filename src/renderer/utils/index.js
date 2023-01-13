@@ -18,7 +18,7 @@ export function extractHoursMinutesSeconds(totalSeconds) {
   return [hours, minutes, seconds];
 }
 
-export function getExportFileExcel(columns, data, fileName) {
+export function getExportFileExcel(headerColumns, columns, data, fileName) {
   const header = columns;
   const compatibleData = data?.map((row) => {
     const obj = {};
@@ -30,7 +30,7 @@ export function getExportFileExcel(columns, data, fileName) {
 
   const wb = XLSX.utils.book_new();
   const ws1 = XLSX.utils.json_to_sheet(compatibleData, {
-    header,
+    headerColumns,
   });
   XLSX.utils.book_append_sheet(wb, ws1, 'React Table Data');
   XLSX.writeFile(wb, `${fileName}.xlsx`);

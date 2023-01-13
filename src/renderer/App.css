@@ -21,13 +21,14 @@ body {
 }
 
 header {
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,118,121,1) 44%, rgba(0,212,255,1) 100%);
+  background: rgb(0,118,142);
+  background: linear-gradient(90deg, rgba(0,118,142,0.8786108193277311) 29%, rgba(0,212,255,0.5620842086834734) 77%);
   color: white;
   padding: 1rem 1rem;
   border-radius: 0 0 15px 15px;
   display: flex;
   justify-content: center;
+  /* width: 100%; */
 }
 
 .input-panel {
@@ -178,7 +179,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,118,121,1) 44%, rgb
 .utilityContent{
   display: flex;
   flex-direction: row;
-  justify-content: flex-end
-
-  /* align-items:right; */
+  justify-content: flex-end;
 }
+/* .currentTime{
+
+} */
