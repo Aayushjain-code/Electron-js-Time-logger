@@ -56,22 +56,33 @@ export default function App() {
       <header>
         <h1>Time Logger Application</h1>
       </header>
-      <button
-        onClick={() => {
-          getExportFileExcel(columns, entriesList, 'timesheetexcel');
-        }}
-      >
-        Export Excel
-      </button>
-      <button
-        onClick={() => {
-          getExportFilePDF(columns, entriesList, 'timesheetpdf');
-        }}
-      >
-        Export Pdf
-      </button>
-      <InputPanel entriesList={entriesList} setEntriesList={setEntriesList} />
-      <TableComponent rowEntries={entriesList} />
+      <div className="pageContent">
+        <div className="counterContent">
+          <InputPanel
+            entriesList={entriesList}
+            setEntriesList={setEntriesList}
+          />
+          <TableComponent rowEntries={entriesList} />
+        </div>
+        <div className="utilityContent">
+          <button
+            className="button btn-yellow"
+            onClick={() => {
+              getExportFileExcel(columns, entriesList, 'timesheetexcel');
+            }}
+          >
+            Export Excel
+          </button>
+          <button
+            className="button btn-yellow "
+            onClick={() => {
+              getExportFilePDF(columns, entriesList, 'timesheetpdf');
+            }}
+          >
+            Export Pdf
+          </button>
+        </div>
+      </div>
     </>
   );
 }

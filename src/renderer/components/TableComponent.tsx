@@ -7,18 +7,28 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { formatToHoursMinutesSeconds } from '../utils/index';
 
 export default function TableComponent({ rowEntries }: any) {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ maxHeight: '55vh' }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Employee Name:</TableCell>
-            <TableCell align="center">Start</TableCell>
-            <TableCell align="center">End</TableCell>
-            <TableCell align="center">Actual Time</TableCell>
+            <TableCell align="center">
+              <b>Reading Number:</b>
+            </TableCell>
+            <TableCell align="center">
+              <b>Employee Name:</b>
+            </TableCell>
+            <TableCell align="center">
+              <b>Start</b>
+            </TableCell>
+            <TableCell align="center">
+              <b>End</b>
+            </TableCell>
+            <TableCell align="center">
+              <b>Actual Time</b>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -27,6 +37,8 @@ export default function TableComponent({ rowEntries }: any) {
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
+              <TableCell align="center">{row.id}</TableCell>
+
               <TableCell component="th" scope="row" align="center">
                 {row.description ? row.description : '-'}
               </TableCell>

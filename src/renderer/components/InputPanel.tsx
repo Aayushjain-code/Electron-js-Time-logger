@@ -46,7 +46,7 @@ export default function InputPanel({ entriesList, setEntriesList }) {
       if (isEntryValid(taskName, taskSecondsCount)) {
         const newEntry = {
           id: entriesList.length + 1,
-          description: taskName,
+          description: taskName ? taskName : '-',
           secondsCount: formatToHoursMinutesSeconds(taskSecondsCount),
           timerStartTime: start,
           timerEndTime: end,

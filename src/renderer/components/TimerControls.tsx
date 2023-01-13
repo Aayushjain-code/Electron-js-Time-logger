@@ -1,5 +1,9 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import StopCircleIcon from '@mui/icons-material/StopCircle';
+import { IconButton } from '@mui/material';
+
 export default function TimerControls({
   timerStatus,
   setTimerStatus,
@@ -7,24 +11,20 @@ export default function TimerControls({
 }) {
   if (timerStatus === 'initial') {
     return (
-      <button
-        className="button btn-primary"
-        onClick={() => setTimerStatus('running')}
-      >
-        Start
-      </button>
+      <IconButton onClick={() => setTimerStatus('running')}>
+        <PlayCircleFilledWhiteIcon className="iconButton iconBtn-green" />
+      </IconButton>
     );
   }
 
   return (
-    <button
-      className="button btn-red"
+    <IconButton
       onClick={() => {
         setTimerStatus('stopped');
         taskSubmitTrigger();
       }}
     >
-      Stop
-    </button>
+      <StopCircleIcon className="iconButton iconBtn-red" />
+    </IconButton>
   );
 }
