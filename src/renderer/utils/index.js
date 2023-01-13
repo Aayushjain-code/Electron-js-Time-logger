@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import * as XLSX from 'xlsx';
@@ -19,9 +20,6 @@ export function extractHoursMinutesSeconds(totalSeconds) {
 
 export function getExportFileExcel(columns, data, fileName) {
   const header = columns;
-  console.log('====================================');
-  console.log(data);
-  console.log('====================================');
   const compatibleData = data?.map((row) => {
     const obj = {};
     header.forEach((col, index) => {
