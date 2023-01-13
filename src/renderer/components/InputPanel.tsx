@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import TimerDisplay from './TimerDisplay';
 import TimerControls from './TimerControls';
+import { formatToHoursMinutesSeconds } from 'renderer/utils';
 
 export default function InputPanel({ entriesList, setEntriesList }) {
-  const [taskDescription, setTaskDescription] = useState('');
+  const [taskName, settaskName] = useState('');
   const [submittingTask, setSubmittingTask] = useState(false);
   const [currentSeconds, setCurrentSeconds] = useState(0);
   const [timerStatus, setTimerStatus] = useState('initial');
@@ -42,11 +43,11 @@ export default function InputPanel({ entriesList, setEntriesList }) {
 
       let start = dayjs(timerStartTime).format('HH:mm:ss');
       let end = dayjs().format('HH:mm:ss');
-      if (isEntryValid(taskDescription, taskSecondsCount)) {
+      if (isEntryValid(taskName, taskSecondsCount)) {
         const newEntry = {
           id: entriesList.length + 1,
-          description: taskDescription,
-          secondsCount: taskSecondsCount,
+          description: taskName,
+          secondsCount: formatToHoursMinutesSeconds(taskSecondsCount),
           timerStartTime: start,
           timerEndTime: end,
         };
@@ -54,7 +55,7 @@ export default function InputPanel({ entriesList, setEntriesList }) {
         setEntriesList([...entriesList, newEntry]);
         setCurrentSeconds(0);
         setTimerStatus('initial');
-        setTaskDescription('');
+        settaskName('');
       } else {
         console.log("The task isn't valid");
         // Handle the error by preventing the submission and informing the user
@@ -71,8 +72,8 @@ export default function InputPanel({ entriesList, setEntriesList }) {
           className="task-input"
           type="text"
           placeholder="Input Employee Name"
-          value={taskDescription}
-          onChange={(event) => setTaskDescription(event.target.value)}
+          value={taskName}
+          onChange={(event) => settaskName(event.target.value)}
         />
         <TimerControls
           timerStatus={timerStatus}
@@ -85,8 +86,8 @@ export default function InputPanel({ entriesList, setEntriesList }) {
   );
 }
 
-function isEntryValid(taskDescription, taskSecondsCount) {
-  // if (taskDescription === '') return false;
+function isEntryValid(taskName, taskSecondsCount) {
+  // if (taskName === '') return false;
   if (taskSecondsCount < 1) return false;
   return true;
 }
