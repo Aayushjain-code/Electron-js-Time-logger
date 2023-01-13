@@ -10,11 +10,9 @@ export default function InputPanel({ entriesList, setEntriesList }) {
   const [currentSeconds, setCurrentSeconds] = useState(0);
   const [timerStatus, setTimerStatus] = useState('initial');
   const [timerStartTime, setTimerStartTime] = useState('');
-  // const [timerEndTime, setTimerEndTime] = useState('');
 
   // The useEffect that starts and stops the timer
   useEffect(() => {
-    // console.log('Inside use effect, timerStatus: ', timerStatus);
     let intervalTimer: string | number | NodeJS.Timeout | null | undefined =
       null;
     if (timerStatus === 'running') {
@@ -30,7 +28,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
     if (timerStatus === 'initial') {
       setCurrentSeconds(0);
       setTimerStartTime('');
-      // setTimerEndTime('');
     }
     if (timerStatus === 'stopped') {
     }
@@ -40,7 +37,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
 
   // The useEffect that submits the current task
   useEffect(() => {
-    console.log('Inside submittingTask hook', submittingTask);
     if (submittingTask) {
       const taskSecondsCount = currentSeconds;
 
