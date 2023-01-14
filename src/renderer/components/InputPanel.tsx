@@ -90,6 +90,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
 
 function isEntryValid(taskName, taskSecondsCount) {
   // if (taskName === '') return false;
-  if (taskSecondsCount < 1) return false;
+  // if (taskSecondsCount < 1) return false;
   return true;
 }

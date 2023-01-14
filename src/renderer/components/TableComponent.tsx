@@ -30,7 +30,9 @@ export default function TableComponent({ rowEntries, handleDelete }: any) {
             <TableCell align="center">
               <b>Actual Time</b>
             </TableCell>
-            <TableCell align="center">Actions</TableCell>
+            <TableCell align="center">
+              <b>Actions</b>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -64,6 +64,7 @@ export default function App() {
       clearInterval(TimeId);
     };
   });
+
   return (
     <>
       <header>
@@ -75,37 +76,43 @@ export default function App() {
             entriesList={entriesList}
             setEntriesList={setEntriesList}
           />
-          <TableComponent
-            rowEntries={entriesList}
-            handleDelete={handleDelete}
-          />
+          {entriesList.length > 0 && (
+            <TableComponent
+              rowEntries={entriesList}
+              handleDelete={handleDelete}
+            />
+          )}
         </div>
 
-        {/* <div className="currentTime">
-          <span>Current time: {time.toLocaleTimeString()}</span>{' '}
-        </div> */}
         <div className="utilityContent">
-          <button
-            className="button btn-yellow"
-            onClick={() => {
-              getExportFileExcel(
-                headerColumns,
-                columns,
-                entriesList,
-                'timesheetexcel'
-              );
-            }}
-          >
-            Export Excel
-          </button>
-          <button
-            className="button btn-yellow "
-            onClick={() => {
-              getExportFilePDF(headerColumns, entriesList, 'timesheetpdf');
-            }}
-          >
-            Export Pdf
-          </button>
+          {entriesList.length > 0 && (
+            <button
+              className="button btn-yellow"
+              onClick={() => {
+                getExportFileExcel(
+                  headerColumns,
+                  columns,
+                  entriesList,
+                  'timesheetexcel'
+                );
+              }}
+            >
+              Export Excel
+            </button>
+          )}
+          {entriesList.length > 0 && (
+            <button
+              className="button btn-yellow "
+              onClick={() => {
+                getExportFilePDF(headerColumns, entriesList, 'timesheetpdf');
+              }}
+            >
+              Export Pdf
+            </button>
+          )}
+          <div className="currentTime">
+            <span>Current Time: {time.toLocaleTimeString()}</span>{' '}
+          </div>
         </div>
       </div>
     </>
