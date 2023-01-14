@@ -20,8 +20,10 @@ body {
   align-items: stretch;
 }
 
-header {background: rgb(142,0,0);
-  background: linear-gradient(90deg, rgba(142,0,0,0.7665660014005602) 29%, rgba(255,121,0,0.5620842086834734) 77%);
+header {
+  background-color: #00BFFF;
+  /* background: rgb(142,0,0); */
+  /* background: linear-gradient(90deg, rgba(142,0,0,0.7665660014005602) 29%, rgba(255,121,0,0.5620842086834734) 77%); */
   color: white;
   padding: 1rem 1rem;
   border-radius: 0 0 15px 15px;
@@ -30,8 +32,9 @@ header {background: rgb(142,0,0);
   /* width: 100%; */
 }
 
-.input-panel {background: rgb(142,0,0);
-  background: linear-gradient(90deg, rgba(142,0,0,0.7665660014005602) 29%, rgba(255,121,0,0.5620842086834734) 77%);
+.input-panel {
+  /* background: rgb(142,0,0);
+  background: linear-gradient(90deg, rgba(142,0,0,0.7665660014005602) 29%, rgba(255,121,0,0.5620842086834734) 77%); */
   margin: 1rem;
   border-radius:0.4rem;
   background-color: #eee;
