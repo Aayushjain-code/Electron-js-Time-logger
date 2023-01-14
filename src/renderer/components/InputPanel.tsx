@@ -1,9 +1,10 @@
 /* eslint-disable no-empty */
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
+import { formatToHoursMinutesSeconds } from 'renderer/utils';
 import TimerDisplay from './TimerDisplay';
 import TimerControls from './TimerControls';
-import { formatToHoursMinutesSeconds } from 'renderer/utils';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function InputPanel({ entriesList, setEntriesList }) {
   const [taskName, settaskName] = useState('');
@@ -45,7 +46,8 @@ export default function InputPanel({ entriesList, setEntriesList }) {
       let end = dayjs().format('HH:mm:ss');
       if (isEntryValid(taskName, taskSecondsCount)) {
         const newEntry = {
-          id: entriesList.length + 1,
+          // id: entriesList.length + 1,
+          id: uuidv4(),
           description: taskName ? taskName : '-',
           secondsCount: formatToHoursMinutesSeconds(taskSecondsCount),
           timerStartTime: start,

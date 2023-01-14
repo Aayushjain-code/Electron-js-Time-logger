@@ -37,10 +37,10 @@ export function getExportFilePDF(
 export default function App() {
   const [entriesList, setEntriesList] = useState([]);
 
-  const deleteTask = (id: any) => {
-    console.log(`Requested to delete the task with ${id}`);
-    const selectedTask = entriesList.filter((task) => task.id === id);
-    console.log(selectedTask);
+  const handleDelete = (id: string) => {
+    // console.log(`Requested to delete the task with ${id}`);
+    // const selectedTask = entriesList.filter((task) => task.id === id);
+    // console.log(selectedTask);
     setEntriesList(entriesList.filter((task) => task.id !== id));
   };
   const columns = [
@@ -75,7 +75,10 @@ export default function App() {
             entriesList={entriesList}
             setEntriesList={setEntriesList}
           />
-          <TableComponent rowEntries={entriesList} />
+          <TableComponent
+            rowEntries={entriesList}
+            handleDelete={handleDelete}
+          />
         </div>
 
         {/* <div className="currentTime">
