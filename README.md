@@ -1,24 +1,30 @@
 ## Electron js Time-logger
 
-clone the repo
-npm install
-npm start
+- Electron js Desktop based Application
+- Logs time of an Employee for a task its duration
+- Used Reactjs in frontend.
+- MaterialUI as component library.
+- Dayjs for time related stuffs.
+- jspdf & jspdf-autotable for pdf conversion
+- uuid for unique id for keys
+- xlsx for excel sheet conversion
 
-Time logger App :
+### Steps to Replicate:
 
-Electron js Desktop based Application
-Logs time of an Employee for a task its duration
+- clone the repo
+- npm install
+- npm start
 
 Functionality:
 
-- on play starts timer.
-- on stop stops timer and adds the reading to table.
-- table has following columns: Employee name,start,end,Actual time,delete button.
+- On play starts timer.
+- On stop stops timer and adds the reading to table.
+- Table has following columns: Employee name,start,end,Actual time,delete button.
 
 Added functionalities:
 
-- input box for employee name.
-- on delete button click user can delete a specific reading.
-- there is a permanent clock in bottom right of Application showing current time.
-- when some readings are selected then only table and utilities buttons(on bottom will be shown).
-- I have also Added export as pdf and excel functionality.
+- Input box for employee name.
+- On delete button click user can delete a specific reading.
+- There is a permanent clock in bottom right of Application showing current time.
+- When some readings are selected then only table and utilities buttons(on bottom will be shown).
+- I have also Added export as PDF and Excel file functionality.
