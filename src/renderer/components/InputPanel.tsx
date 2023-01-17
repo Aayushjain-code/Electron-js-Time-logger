@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import { formatToHoursMinutesSeconds } from 'renderer/utils';
 import TimerDisplay from './TimerDisplay';
 import TimerControls from './TimerControls';
+import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function InputPanel({ entriesList, setEntriesList }) {
@@ -55,11 +56,16 @@ export default function InputPanel({ entriesList, setEntriesList }) {
         };
         console.log('Submitting the task', newEntry);
         setEntriesList([...entriesList, newEntry]);
+        toast.success('TIME LOG ENTRY ADDED SUCCESSFULLY');
         setCurrentSeconds(0);
         setTimerStatus('initial');
         settaskName('');
       } else {
         console.log("The task isn't valid");
+        toast.error('Time count should be more than 1 second !! Please Retry.');
+        setCurrentSeconds(0);
+        setTimerStatus('initial');
+        settaskName('');
         // Handle the error by preventing the submission and informing the user
       }
       setSubmittingTask(false);
@@ -90,6 +96,6 @@ export default function InputPanel({ entriesList, setEntriesList }) {
 
 function isEntryValid(taskName, taskSecondsCount) {
   // if (taskName === '') return false;
-  // if (taskSecondsCount < 1) return false;
+  if (taskSecondsCount < 1) return false;
   return true;
 }

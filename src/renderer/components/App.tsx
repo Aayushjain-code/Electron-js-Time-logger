@@ -3,37 +3,12 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/button-has-type */
 import { useEffect, useState } from 'react';
-import { getExportFileExcel } from 'renderer/utils';
-import jsPDF from 'jspdf';
+import { ToastContainer } from 'react-toastify';
 import InputPanel from './InputPanel';
 import TableComponent from './TableComponent';
-import 'jspdf-autotable';
+import Utilities from './Utilities';
+import 'react-toastify/dist/ReactToastify.css';
 
-export function getExportFilePDF(
-  columns: string[],
-  data: any[],
-  fileName: string
-) {
-  const headerNames = columns;
-  const doc = new jsPDF();
-  // const compatibleData = data;
-  const result = data?.map(Object.values);
-  doc.autoTable({
-    head: [headerNames],
-    body: result,
-    margin: { top: 20 },
-    styles: {
-      minCellHeight: 9,
-      halign: 'left',
-      valign: 'center',
-      fontSize: 11,
-    },
-  });
-
-  doc.save(`${fileName}.pdf`);
-
-  return false;
-}
 export default function App() {
   const [entriesList, setEntriesList] = useState([]);
 
@@ -43,20 +18,7 @@ export default function App() {
     // console.log(selectedTask);
     setEntriesList(entriesList.filter((task) => task.id !== id));
   };
-  const columns = [
-    'id',
-    'description',
-    'secondsCount',
-    'timerStartTime',
-    'timerEndTime',
-  ];
-  const headerColumns = [
-    'id',
-    'Employee Name',
-    'Time Duration',
-    'Start Time',
-    'End Time',
-  ];
+
   const [time, setTime] = useState(new Date());
   useEffect(() => {
     let TimeId = setInterval(() => setTime(new Date()), 1000);
@@ -67,6 +29,13 @@ export default function App() {
 
   return (
     <>
+      {' '}
+      <ToastContainer
+        hideProgressBar
+        position="bottom-right"
+        limit={1}
+        autoClose={2000}
+      />
       <header>
         <h1>Time Logger Application</h1>
       </header>
@@ -83,38 +52,10 @@ export default function App() {
             />
           )}
         </div>
-
-        <div className="utilityContent">
-          {entriesList.length > 0 && (
-            <button
-              className="button btn-yellow"
-              onClick={() => {
-                getExportFileExcel(
-                  headerColumns,
-                  columns,
-                  entriesList,
-                  'timesheetexcel'
-                );
-              }}
-            >
-              Export Excel
-            </button>
-          )}
-          {entriesList.length > 0 && (
-            <button
-              className="button btn-yellow "
-              onClick={() => {
-                getExportFilePDF(headerColumns, entriesList, 'timesheetpdf');
-              }}
-            >
-              Export Pdf
-            </button>
-          )}
-          <div className="currentTime">
-            <span>Current Time: {time.toLocaleTimeString()}</span>{' '}
-          </div>
-        </div>
       </div>
+      <footer>
+        <Utilities entriesList={entriesList} time={time} />
+      </footer>
     </>
   );
 }
