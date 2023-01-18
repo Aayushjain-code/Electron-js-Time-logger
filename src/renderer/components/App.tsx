@@ -29,10 +29,9 @@ export default function App() {
 
   return (
     <>
-      {' '}
       <ToastContainer
         hideProgressBar
-        position="bottom-right"
+        position="top-right"
         limit={1}
         autoClose={2000}
       />
