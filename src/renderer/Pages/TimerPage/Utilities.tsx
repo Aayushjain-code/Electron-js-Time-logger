@@ -59,9 +59,6 @@ const Utilities = ({ entriesList, time }) => {
           Export Pdf
         </button>
       )}
-      <div className="currentTime">
-        <span>Current Time: {time.toLocaleTimeString()}</span>{' '}
-      </div>
     </div>
   );
 };

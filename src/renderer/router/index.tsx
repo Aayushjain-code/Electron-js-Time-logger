@@ -1,11 +1,11 @@
-import React from 'react';
-import { Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import TimerPage from 'renderer/Pages/TimerPage';
 
 const RouterElement = () => {
   return (
-    <div>
-      <Routes></Routes>
-    </div>
+    <Routes>
+      <Route index element={<TimerPage />} />
+    </Routes>
   );
 };
 
