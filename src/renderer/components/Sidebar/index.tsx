@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef, useState } from 'react';
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
+import { MdAddchart } from 'react-icons/md';
 import useOnClickOutside from 'renderer/hooks/useOnClickOutside';
 import { studyItems } from './menuItems';
 import SideNavItemList from './SideNavItemList';
@@ -20,7 +21,10 @@ const Sidebar = () => {
     <S.SidebarContainer style={{ width: isOpen ? '197px' : '67px' }} ref={ref}>
       <div>
         <S.SidebarHeader>
-          <div style={{ display: isOpen ? 'block' : 'none' }}>LOGO MAIN </div>
+          <div style={{ display: isOpen ? 'block' : 'none' }}>
+            {' '}
+            <MdAddchart fontSize={50} />
+          </div>
 
           <div
             style={{
@@ -29,7 +33,7 @@ const Sidebar = () => {
               left: '0.5rem',
             }}
           >
-            Small Logo
+            <MdAddchart fontSize={30} />
           </div>
           <S.SidebarToggleControl
             onClick={toggle}

@@ -6,13 +6,13 @@ export const studyItems = [
   {
     id: 1,
     name: 'Timer',
-    path: '/',
+    path: '/timer',
     icon: <MdCollectionsBookmark />,
   },
   {
     id: 2,
-    name: 'New Page',
-    path: '/new',
+    name: 'Dummy Page',
+    path: '/dummy',
     icon: <MdCollectionsBookmark />,
   },
 ];

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const NavTab = styled(NavLink)<{ isopen: string }>`
   display: flex;
-  padding: 12px 2px;
+  padding: 4px 2px;
   text-decoration: none;
   text-align: left;
   height: 48px;
@@ -16,12 +16,12 @@ export const NavTab = styled(NavLink)<{ isopen: string }>`
   margin: ${({ isopen }) =>
     isopen === 'true' ? '9.5px 5px 9.5px 12px' : '9.5px 5px 9.5px 4.5px'};
   :hover {
-    background-color: #acdfde;
+    background-color: rgb(178, 128, 243);
     color: #f0f0fa;
     transition: all 0.5s;
   }
   &.active {
-    background-color: #33bcba;
+    background-color: rgb(111, 0, 255);
     color: #f0f0fa !important;
     transition: all 0.5s;
     & div svg {
