@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const NavTab = styled(NavLink)<{ isopen: string }>`
   display: flex;
-  padding: 4px 2px;
+  /* padding: 4px 2px; */
+  padding: ${({ isopen }) => (isopen === 'true' ? '4px 6px' : '4px 2px')};
   text-decoration: none;
   text-align: left;
   height: 48px;

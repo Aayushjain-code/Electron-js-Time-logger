@@ -23,7 +23,7 @@ const Sidebar = () => {
         <S.SidebarHeader>
           <div style={{ display: isOpen ? 'block' : 'none' }}>
             {' '}
-            <MdAddchart fontSize={50} />
+            <MdAddchart fontSize={30} />
           </div>
 
           <div
