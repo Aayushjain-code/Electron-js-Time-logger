@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { formatToHoursMinutesSeconds } from 'renderer/utils';
-import TimerDisplay from './TimerDisplay';
-import TimerControls from './TimerControls';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
+import TimerDisplay from './TimerDisplay';
+import TimerControls from './TimerControls';
 
 export default function InputPanel({ entriesList, setEntriesList }) {
   const [taskName, settaskName] = useState('');
@@ -47,21 +47,18 @@ export default function InputPanel({ entriesList, setEntriesList }) {
       let end = dayjs().format('HH:mm:ss');
       if (isEntryValid(taskName, taskSecondsCount)) {
         const newEntry = {
-          // id: entriesList.length + 1,
           id: uuidv4(),
-          description: taskName ? taskName : '-',
+          description: taskName || '-',
           secondsCount: formatToHoursMinutesSeconds(taskSecondsCount),
           timerStartTime: start,
           timerEndTime: end,
         };
-        console.log('Submitting the task', newEntry);
         setEntriesList([...entriesList, newEntry]);
         toast.success('TIME LOG ENTRY ADDED SUCCESSFULLY');
         setCurrentSeconds(0);
         setTimerStatus('initial');
         settaskName('');
       } else {
-        console.log("The task isn't valid");
         toast.error('Time count should be more than 1 second !! Please Retry.');
         setCurrentSeconds(0);
         setTimerStatus('initial');

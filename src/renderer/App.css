@@ -6,7 +6,6 @@
 body {
   display: flex;
   justify-content: center;
-
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,7 +13,7 @@ body {
 
 #root {
   /* background-color: rgba(238, 238, 238, 0.6666666667); */
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -26,7 +25,6 @@ header {
   /* background: linear-gradient(90deg, rgba(142,0,0,0.7665660014005602) 29%, rgba(255,121,0,0.5620842086834734) 77%); */
   color: white;
   padding: 1rem 1rem;
-  border-radius: 0 0 15px 15px;
   display: flex;
   justify-content: center;
   /* width: 100%; */
@@ -168,7 +166,7 @@ header {
 
 
  .pageContent{
-  height: 80vh;
+  height: 78vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -182,13 +180,12 @@ header {
   flex-direction: row;
   justify-content: flex-end;
 }
-.currentTime{
+.TopAppBar{
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items:center;
-margin:0 0 0 0.5rem;
 background-color:yellow;
 padding: 0 1rem;
 border-radius:0.4rem;
-min-height: 2.5rem;
+min-height: 4.5rem;
 }
