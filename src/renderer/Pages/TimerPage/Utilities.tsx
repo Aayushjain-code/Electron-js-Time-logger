@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
-import React from 'react';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { columns, headerColumns } from 'renderer/constants';
@@ -31,7 +30,7 @@ export function getExportFilePDF(
 
   return false;
 }
-const Utilities = ({ entriesList, time }) => {
+const Utilities = ({ entriesList }) => {
   return (
     <div className="utilityContent">
       {entriesList.length > 0 && (
