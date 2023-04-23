@@ -2,7 +2,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import jsPDF from 'jspdf';
-import { autoTable } from 'jspdf-autotable';
+import 'jspdf-autotable';
 import { columns, headerColumns } from 'renderer/constants';
 import { getExportFileExcel } from 'renderer/utils';
 
